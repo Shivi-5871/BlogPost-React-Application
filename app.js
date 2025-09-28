@@ -4,6 +4,13 @@ const mongoose = require("mongoose");
 const Blogpost = require("./models/blogPosts");
 const app = express();
 const port = 3020;
+// or we can use const port = 3099;
+
+
+const cors = require("cors");
+app.use(cors());  //this will allow all origins. Configure as needed
+
+
 
 const USERNAME = "shiviAgarwal";
 const PASSWORD = "5871shivi";
@@ -106,6 +113,6 @@ app.post("/blogs", (req, res) => {
 
 
 app.use((req, res) => {
-    console.log("DEFAULT ERROR WALA");
+   
     res.status(404).send("error");
 });
